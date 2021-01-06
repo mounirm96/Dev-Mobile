@@ -1,0 +1,12 @@
+#next{
+    position: fixed;
+    bottom: 120px;
+    left: 860px;
+  }
+
+
+  #prev{
+    position: fixed;
+    bottom: 120px;
+    left: 720px;
+  }

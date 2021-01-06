@@ -1,0 +1,51 @@
+html, body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	margin: 0;
+  }
+  
+  #container {
+	width: 100%;
+	height: 100%;
+
+  }
+
+
+  #imageD {
+	max-width: 500px;
+	max-height: 500px;
+	min-width: 200px;
+	min-height: 250px;
+	background: #fff;
+	color: #000;
+	border-radius: 3px;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+  }
+
+
+  #imageD > img {
+	border: none;
+	width:100%;
+  }
+
+
+  
+  #imageM {
+	max-width: 500px;
+	max-height: 500px;
+	min-width: 200px;
+	min-height: 250px;
+	background: #fff;
+	color: #000;
+	border-radius: 3px;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+  }
+
+
+  #imageM > img {
+	border: none;
+	width:100%;
+  }

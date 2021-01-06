@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Random rects</title>
+    <style>
+        #bt{
+        position: fixed;
+        bottom: 120px;
+        left: 860px;
+        }
+    </style>
+        
+</head>
+
+<body>
+
+    <button id="bt"> generate</button>
+    <script>
+        var body = document.getElementsByTagName("body")[0];
+        var canvas = document.createElement("canvas");
+        canvas.height = window.innerHeight/2;
+        canvas.width =  window.innerWidth/2;
+        var context = canvas.getContext("2d");
+        body.appendChild(canvas);
+
+        var rects = [];
+
+        function create() {
+            //  Opacity
+            for(let i = 0 ; i<30 ; i++){
+            context.globalAlpha = 0.8;
+            var color = '#' + Math.round(0xffffff * Math.random()).toString(16);
+            context.fillStyle = color;
+
+            var X = Math.random() * canvas.width;
+            var Y = Math.random() * canvas.width;
+            var W = Math.random() *  80  + 20;
+            var H = Math.random() *  60  + 20;
+
+            var rect = {x: X, y: Y, w: W, h: H}
+
+            var isColid = true;
+            rects.forEach(function (item) {
+                if (colidTest(rect, item) ) {
+                    console.log("collide");
+                    isColid = false;
+                } else {
+                    console.log("no collision");
+                }
+            })
+
+            if (isColid) {
+                context.fillRect(X, Y, W, H);
+                rects.push(rect);
+            }
+
+            //console.log(rects);
+        }
+        }
+
+
+        function colidTest(a, b) {
+            return !(
+                ((a.y + a.h) < (b.y)) ||
+                (a.y > (b.y + b.h)) ||
+                ((a.x + a.w) < b.x) ||
+                (a.x > (b.x + b.w))
+            );
+        }
+        document.getElementById('bt').addEventListener('click', create);
+        
+    </script>
+
+</body>
+
+</html>
